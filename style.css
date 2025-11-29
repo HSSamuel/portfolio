@@ -1,0 +1,539 @@
+/*
+  PORTFOLIO CHALLENGE - FINAL STYLESHEET
+  This file contains all styling for the portfolio website.
+  It includes a unified color theme, CSS variables, animations, and responsive design.
+*/
+
+/* --- 1. Basic Setup & Variables --- */
+:root {
+  /* Main Theme Colors */
+  --bg-light: #eaf2f8;
+  --navbar-blue-dark: #08083d;
+  --navbar-blue-light: #172a45;
+  --text-dark: var(--navbar-blue-dark);
+  --text-secondary: var(--navbar-blue-dark);
+  --text-light: #f0f4f8;
+  --accent-primary: #097ac5;
+  --accent-secondary: #861407;
+  --gradient: linear-gradient(
+    90deg,
+    var(--navbar-blue-dark),
+    var(--accent-secondary),
+    var(--accent-primary)
+  );
+
+  --card-bg: #ffffff;
+  --border-color: var(--navbar-blue-dark);
+  --shadow: 0 4px 15px rgba(44, 62, 80, 0.1);
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--bg-light);
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+/* --- 2. Layout & General Styling --- */
+main {
+  max-width: 1100px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+section {
+  padding: 30px 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+h1,
+h2,
+h3 {
+  color: var(--text-dark);
+}
+
+h2 {
+  font-size: 2.2rem;
+  margin-bottom: 40px;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* --- 3. Header & Navigation --- */
+header {
+  background-color: var(--navbar-blue-dark);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 5%;
+}
+
+.logo {
+  color: var(--accent-primary);
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.my-logo {
+  height: 35px;
+  width: 35px;
+  object-fit: contain;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+}
+
+.nav-link {
+  color: var(--text-light);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: var(--accent-primary);
+}
+
+/* --- 4. Hero Section --- */
+#hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+  min-height: 90vh;
+  border-bottom: none;
+  padding: 50px 0 0 0;
+}
+
+.hero-text {
+  flex-basis: 60%;
+}
+
+.avatar-wrapper {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  padding: 6px;
+  background: var(--gradient);
+  animation: spin 4s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 6px solid var(--bg-light);
+}
+
+.hero-text h1 {
+  font-size: 3.2rem;
+  margin: 0;
+  font-weight: 700;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-text .subtitle {
+  font-size: 1.5rem;
+  color: var(--accent-primary);
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.hero-description {
+  font-size: 1.1rem;
+  max-width: 500px;
+  margin-bottom: 30px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 12px 30px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  color: white;
+  background: var(--gradient);
+  border: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cta-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(23, 42, 69, 0.3);
+}
+
+.cta-button.secondary {
+  background: transparent;
+  border: 2px solid var(--navbar-blue-dark);
+  color: var(--navbar-blue-dark);
+}
+.cta-button.secondary:hover {
+  background-color: rgba(52, 152, 219, 0.1);
+  box-shadow: 0 5px 15px rgba(52, 152, 219, 0.2);
+}
+
+/* --- 5. Social & Other Sections --- */
+#socials {
+  padding-top: 0;
+  padding-bottom: 20px;
+  text-align: center;
+  border-bottom: none;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+.social-icon {
+  color: var(--text-secondary);
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.social-icon:hover {
+  color: var(--accent-primary);
+  transform: translateY(-3px);
+}
+
+#about p {
+  margin: 0 auto;
+  text-align: justify;
+  font-size: 1.1rem;
+}
+
+#education {
+  text-align: center;
+}
+
+#education p {
+  margin: 0 auto 30px auto;
+}
+
+#interests ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.interest-item {
+  background-color: var(--navbar-blue-dark);
+  padding: 15px 20px;
+  margin-bottom: 10px;
+  border-left: 4px solid var(--accent-primary);
+  border-radius: 4px;
+  box-shadow: var(--shadow);
+  color: var(--text-light);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.interest-item:hover {
+  transform: translateY(-3px);
+}
+
+.interest-item strong {
+  display: block;
+  color: #ffffff;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+/* --- 6. Skills Section --- */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px 40px;
+}
+
+.skill-item {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 10px;
+}
+
+.skill-item h3 {
+  font-size: 1rem;
+  color: var(--text-dark);
+  font-weight: 600;
+  margin: 0;
+}
+
+.skill-bar {
+  width: 100%;
+  height: 8px;
+  background-color: white;
+  border-radius: 5px;
+}
+
+.skill-level {
+  height: 100%;
+  background: var(--gradient);
+  border-radius: 5px;
+  animation: fill-bar 1.5s ease-out 0.5s forwards;
+}
+
+@keyframes fill-bar {
+  from {
+    width: 0;
+  }
+}
+
+/* --- 7. Projects & Contact --- */
+.project-card {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  background-color: var(--navbar-blue-dark);
+  padding: 25px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  border: 1px solid var(--border-color);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: var(--shadow);
+  color: var(--text-light); /* Text inside remains light */
+}
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(23, 42, 69, 0.2);
+}
+
+.project-card h3 {
+  color: var(--text-light); /* Heading inside remains light */
+}
+
+.project-image-wrapper {
+  flex-basis: 45%;
+  flex-shrink: 0;
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+.project-image-wrapper img {
+  width: 100%;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.project-card:hover .project-image-wrapper img {
+  transform: scale(1.05);
+}
+
+.project-text-content {
+  flex-basis: 55%;
+}
+
+.project-link {
+  color: var(--accent-primary);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+input,
+textarea {
+  padding: 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  background-color: #fdfefe;
+  color: var(--text-dark);
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 10px rgba(52, 152, 219, 0.2);
+}
+
+/* --- 8. Footer & Back to Top --- */
+footer {
+  text-align: center;
+  padding: 10px 20px;
+  background-color: var(--navbar-blue-dark);
+  border-top: 1px solid var(--border-color);
+  color: var(--text-light); /* Text inside remains light */
+}
+
+.back-to-top {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background: var(--gradient);
+  color: white;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease;
+}
+
+.back-to-top:hover {
+  transform: translateY(-3px);
+}
+
+/* --- 9. Hamburger Menu (CSS-Only) --- */
+.nav-toggle {
+  display: none;
+}
+
+.nav-toggle-label {
+  display: none;
+  flex-direction: column;
+  width: 30px;
+  cursor: pointer;
+}
+
+.nav-toggle-label span {
+  background: var(--text-light);
+  border-radius: 2px;
+  height: 3px;
+  margin: 4px 0;
+  transition: 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+}
+
+#nav-toggle:checked ~ .nav-toggle-label span:nth-of-type(1) {
+  transform-origin: bottom;
+  transform: rotatez(45deg) translate(8px, 0px);
+}
+#nav-toggle:checked ~ .nav-toggle-label span:nth-of-type(2) {
+  transform-origin: top;
+  transform: rotatez(-45deg) translate(8px, 0px);
+}
+#nav-toggle:checked ~ .nav-toggle-label span:nth-of-type(3) {
+  transform-origin: bottom;
+  width: 0;
+}
+
+/* --- 10. Responsive Design --- */
+@media (max-width: 768px) {
+  section {
+    padding: 20px 0;
+  }
+
+  #hero {
+    flex-direction: column-reverse;
+    text-align: center;
+    gap: 40px;
+  }
+
+  #socials {
+    margin-top: 30px;
+  }
+
+  #about p {
+    text-align: center;
+  }
+
+  .hero-text {
+    order: 2;
+  }
+
+  .avatar-wrapper {
+    order: 1;
+    width: 200px;
+    height: 200px;
+  }
+
+  .hero-description {
+    margin: 20px auto;
+  }
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--navbar-blue-dark);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 0.5rem 0;
+  }
+
+  .nav-link {
+    padding: 0.5rem 1rem;
+    text-align: center;
+  }
+
+  .nav-toggle-label {
+    display: flex;
+  }
+
+  #nav-toggle:checked ~ .nav-links {
+    display: flex;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    text-align: center;
+  }
+
+  .project-card {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-text h1 {
+    font-size: 2.5rem;
+  }
+  h2 {
+    font-size: 1.8rem;
+  }
+}
