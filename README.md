@@ -2,7 +2,7 @@
 
 Welcome to my personal portfolio, built for the PLP Academy Portfolio Challenge. This project showcases my skills in frontend development, my background, and the projects I'm passionate about.
 
-**Live Demo: **https://hssamuel.github.io/my-portfolio**
+**Live Demo: **https://hssamuel.github.io/portfolio**
 
 ---
 
