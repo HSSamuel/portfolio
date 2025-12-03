@@ -1,24 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Meta Tags for Character Set and Responsive Design -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sammy Consult - My Portfolio</title>
+    <title>HSSamuel - My Portfolio</title>
     <link rel="icon" type="image/png" href="assets/favicon.png" />
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
       rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <!-- ===== HEADER & NAVIGATION ===== -->
     <header>
       <nav>
         <a href="#hero" class="logo" aria-label="Navigate to top of page">
@@ -26,7 +23,6 @@
           <span>My Portfolio</span>
         </a>
 
-        <!-- Hamburger Menu -->
         <input type="checkbox" id="nav-toggle" class="nav-toggle" />
         <label for="nav-toggle" class="nav-toggle-label">
           <span></span>
@@ -39,24 +35,30 @@
           <a href="#skills" class="nav-link">Skills</a>
           <a href="#projects" class="nav-link">Projects</a>
           <a href="#contact" class="nav-link">Contact</a>
+          <button
+            id="theme-toggle"
+            class="theme-btn"
+            aria-label="Toggle Dark Mode"
+          >
+            <i class="fas fa-moon"></i>
+          </button>
         </div>
       </nav>
     </header>
 
-    <!-- ===== MAIN CONTENT ===== -->
     <main>
-      <!-- ===== HERO SECTION ===== -->
       <section id="hero">
-        <div class="avatar-wrapper">
+        <div class="avatar-wrapper" data-aos="zoom-in" data-aos-duration="1500">
           <img
             src="assets/mypassport.jpg"
             alt="A professional headshot of Hunsa S. Samuel"
             class="avatar"
           />
         </div>
-        <div class="hero-text">
-          <h1>Hi, I'm Hunsa S. Samuel</h1>
-          <p class="subtitle">Full-Stack Developer</p>
+
+        <div class="hero-text" data-aos="fade-left" data-aos-duration="1500">
+          <h1>Hi, I'm HUNSA S. Samuel</h1>
+          <p class="subtitle">I am a <span class="auto-type"></span></p>
           <p class="hero-description">
             I build creative, intuitive, and high-performance web applications
             that users love to interact with.
@@ -68,8 +70,7 @@
         </div>
       </section>
 
-      <!-- ===== SOCIALS SECTION ===== -->
-      <section id="socials">
+      <section id="socials" data-aos="fade-up" data-aos-delay="200">
         <a
           href="https://www.linkedin.com/in/hssamuel/"
           target="_blank"
@@ -137,37 +138,34 @@
         </a>
       </section>
 
-      <!-- ===== ABOUT SECTION ===== -->
-      <section id="about">
+      <section id="about" data-aos="fade-up">
         <h2>About Me</h2>
         <p>
-          I serve as an Administrative Assistant at the West African Management
+          I work as an Administrative Assistant at the West African Management
           Development Institutes Network (WAMDEVIN), ASCON, Topo-Badagry, Lagos,
           Nigeria, where I have developed a strong foundation in governance and
-          institutional management. I am also a passionate software developer,
-          as well as a graphic and presentation designer.
+          institutional management. I am a passionate software developer, a
+          graphic and presentation designer.
         </p>
       </section>
 
-      <!-- ===== EDUCATION SECTION ===== -->
-      <section id="education">
+      <section id="education" data-aos="fade-up">
         <h2>🎓 Educational Background</h2>
         <p>
-          I am currently pursuing my first degree in Public Administration at
-          Lagos State University. As a fellow of the 3 Million Technical Talent
-          (3MTT) program, I have also built a solid foundation in software
-          development methodologies.
+          Currently pursuing my first degree in Public Administration at Lagos
+          State University. As a fellow of the 3 Million Technical Talent (3MTT)
+          program and a student of Digital SkillUp Africa, The Incubator Hub, I
+          have built a solid foundation in software development methodologies.
         </p>
         <a href="assets/Sam CV Resume.pdf" class="cta-button" download
           >Download My CV</a
         >
       </section>
 
-      <!-- ===== INTERESTS SECTION ===== -->
       <section id="interests">
         <h2>Interests</h2>
 
-        <div class="interest-item">
+        <div class="interest-item" data-aos="fade-up" data-aos-delay="0">
           <strong>Web Development:</strong>
           <p>
             Exploring modern frameworks and databases like React and MongoDB,
@@ -175,7 +173,7 @@
           </p>
         </div>
 
-        <div class="interest-item">
+        <div class="interest-item" data-aos="fade-up" data-aos-delay="100">
           <strong>Tech Innovations:</strong>
           <p>
             Keeping up with emerging trends in Artificial Intelligence, Web3,
@@ -183,7 +181,7 @@
           </p>
         </div>
 
-        <div class="interest-item">
+        <div class="interest-item" data-aos="fade-up" data-aos-delay="200">
           <strong>Open Source:</strong>
           <p>
             Contributing to open-source projects that I find inspiring and
@@ -192,8 +190,7 @@
         </div>
       </section>
 
-      <!-- ===== SKILLS SECTION ===== -->
-      <section id="skills">
+      <section id="skills" data-aos="fade-up">
         <h2>My Skills</h2>
         <div class="skills-grid">
           <div class="skill-item">
@@ -235,14 +232,15 @@
         </div>
       </section>
 
-      <!-- ===== PROJECTS SECTION ===== -->
       <section id="projects">
         <h2>My Projects</h2>
-        <div class="project-card">
+
+        <div class="project-card" data-aos="fade-up">
           <div class="project-image-wrapper">
             <img
               src="assets/project1.png"
-              alt="Screenshot of WAMDEVIN Project"
+              alt="Screenshot of WAMDEVIN"
+              loading="lazy"
             />
           </div>
           <div class="project-text-content">
@@ -265,11 +263,12 @@
           </div>
         </div>
 
-        <div class="project-card">
+        <div class="project-card" data-aos="fade-up">
           <div class="project-image-wrapper">
             <img
               src="assets/project2.png"
               alt="Screenshot of MedGuard Project"
+              loading="lazy"
             />
           </div>
           <div class="project-text-content">
@@ -291,11 +290,12 @@
           </div>
         </div>
 
-        <div class="project-card">
+        <div class="project-card" data-aos="fade-up">
           <div class="project-image-wrapper">
             <img
               src="assets/project3.png"
               alt="Screenshot of MentorMe Project"
+              loading="lazy"
             />
           </div>
           <div class="project-text-content">
@@ -315,11 +315,13 @@
             >
           </div>
         </div>
-        <div class="project-card">
+
+        <div class="project-card" data-aos="fade-up">
           <div class="project-image-wrapper">
             <img
               src="assets/project4.png"
               alt="Screenshot of BetWise Project"
+              loading="lazy"
             />
           </div>
           <div class="project-text-content">
@@ -340,8 +342,7 @@
         </div>
       </section>
 
-      <!-- ===== CONTACT SECTION ===== -->
-      <section id="contact">
+      <section id="contact" data-aos="fade-up">
         <h2>Contact Me</h2>
         <form action="https://formspree.io/f/meozlvyd" method="POST">
           <input type="text" name="name" placeholder="Your Name" required />
@@ -356,12 +357,107 @@
       </section>
     </main>
 
-    <!-- ===== FOOTER ===== -->
     <footer>
-      <p>&copy; 2025 - Sammy Consult. All rights reserved.</p>
+      <p>&copy; 2025 - HSSamuel. All rights reserved.</p>
     </footer>
 
-    <!-- ===== BACK TO TOP BUTTON ===== -->
+    <a
+      href="https://wa.me/2348084737049?text=Hello%20Hunsa,%20I%20came%20from%20your%20portfolio."
+      class="whatsapp-btn"
+      target="_blank"
+      aria-label="Chat on WhatsApp"
+    >
+      <i class="fab fa-whatsapp"></i>
+    </a>
+
     <a href="#hero" class="back-to-top" aria-label="Scroll to top">↑</a>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 1200 /* Speed of animation */,
+        once: true /* Animate only once per scroll */,
+        offset: 100 /* Trigger slightly before element is in view */,
+      });
+    </script>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script>
+      var typed = new Typed(".auto-type", {
+        strings: [
+          "Software Developer",
+          "Graphic Designer",
+          "Problem Solver",
+          "Admin Assistant",
+          "Presentation Designer",
+        ],
+        typeSpeed: 100 /* Speed of typing (milliseconds) */,
+        backSpeed: 50 /* Speed of deleting */,
+        backDelay: 2000 /* Pause before deleting (2 seconds) */,
+        loop: true /* Keep looping forever */,
+      });
+    </script>
+    <script>
+      // 1. Select all sections that have an ID
+      const sections = document.querySelectorAll("section[id]");
+
+      // 2. The function that runs whenever we scroll
+      function scrollActive() {
+        const scrollY = window.pageYOffset;
+
+        sections.forEach((current) => {
+          const sectionHeight = current.offsetHeight;
+          const sectionTop = current.offsetTop - 100; // Offset for the sticky header
+          const sectionId = current.getAttribute("id");
+          const sectionLink = document.querySelector(
+            ".nav-links a[href*=" + sectionId + "]"
+          );
+
+          // If the section exists in the nav menu
+          if (sectionLink) {
+            if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+              sectionLink.classList.add("active-link");
+            } else {
+              sectionLink.classList.remove("active-link");
+            }
+          }
+        });
+      }
+
+      // 3. Listen for scroll events
+      window.addEventListener("scroll", scrollActive);
+    </script>
+    <script>
+      const themeBtn = document.getElementById("theme-toggle");
+      const themeIcon = themeBtn.querySelector("i");
+      const body = document.body;
+
+      // 1. Check Local Storage on Load
+      // If the user previously chose 'dark', apply it immediately
+      if (localStorage.getItem("theme") === "dark") {
+        body.classList.add("dark-mode");
+        themeIcon.classList.remove("fa-moon");
+        themeIcon.classList.add("fa-sun");
+      }
+
+      // 2. Toggle Function
+      themeBtn.addEventListener("click", () => {
+        body.classList.toggle("dark-mode");
+
+        // If body has 'dark-mode' class...
+        if (body.classList.contains("dark-mode")) {
+          // Switch icon to Sun
+          themeIcon.classList.remove("fa-moon");
+          themeIcon.classList.add("fa-sun");
+          // Save preference
+          localStorage.setItem("theme", "dark");
+        } else {
+          // Switch icon to Moon
+          themeIcon.classList.remove("fa-sun");
+          themeIcon.classList.add("fa-moon");
+          // Save preference
+          localStorage.setItem("theme", "light");
+        }
+      });
+    </script>
   </body>
 </html>

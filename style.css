@@ -1,37 +1,43 @@
 /*
-  PORTFOLIO CHALLENGE - FINAL STYLESHEET
+  PORTFOLIO CHALLENGE - FINAL STYLESHEET (MODERNIZED)
   This file contains all styling for the portfolio website.
-  It includes a unified color theme, CSS variables, animations, and responsive design.
+  Updated with a Clean & Vibrant aesthetic (White/Slate/Electric Blue).
 */
 
 /* --- 1. Basic Setup & Variables --- */
 :root {
-  /* Main Theme Colors */
-  --bg-light: #eaf2f8;
-  --navbar-blue-dark: #08083d;
-  --navbar-blue-light: #172a45;
-  --text-dark: var(--navbar-blue-dark);
-  --text-secondary: var(--navbar-blue-dark);
-  --text-light: #f0f4f8;
-  --accent-primary: #097ac5;
-  --accent-secondary: #861407;
-  --gradient: linear-gradient(
-    90deg,
-    var(--navbar-blue-dark),
-    var(--accent-secondary),
-    var(--accent-primary)
-  );
-
-  --card-bg: #ffffff;
-  --border-color: var(--navbar-blue-dark);
-  --shadow: 0 4px 15px rgba(44, 62, 80, 0.1);
+  /* --- NEW MODERN COLOR PALETTE --- */
+  
+  /* Backgrounds */
+  --bg-light: #f8fafc;       /* Cool light grey (modern standard) */
+  --card-bg: #ffffff;        /* Pure white for cards */
+  --navbar-bg: #0f172a;      /* Deep Midnight Blue for header */
+  
+  /* Text Colors */
+  --text-dark: #1e293b;      /* Dark Slate for Headings */
+  --text-secondary: #475569; /* Medium Slate for paragraph text */
+  --text-light: #f1f5f9;     /* Light text for inside Navbar/Dark areas */
+  
+  /* Accents & Brand Colors */
+  --accent-primary: #2563eb; /* Vibrant Electric Blue */
+  --accent-secondary: #06b6d4; /* Cyan/Teal for gradients */
+  --accent-glow: rgba(37, 99, 235, 0.2); /* Soft blue glow */
+  
+  /* Gradients */
+  --gradient: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  
+  /* Borders & Shadows */
+  --border-color: #e2e8f0;   /* Light grey border */
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1); /* Floating effect */
 }
 
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: "Segoe UI", "Inter", Tahoma, Geneva, Verdana, sans-serif;
   background-color: var(--bg-light);
   color: var(--text-secondary);
-  line-height: 1.6;
+  line-height: 1.7; /* Improved readability */
   margin: 0;
   padding: 0;
   scroll-behavior: smooth;
@@ -45,7 +51,7 @@ main {
 }
 
 section {
-  padding: 30px 0;
+  padding: 60px 0; /* More whitespace for modern look */
   border-bottom: 1px solid var(--border-color);
 }
 
@@ -53,32 +59,49 @@ h1,
 h2,
 h3 {
   color: var(--text-dark);
+  line-height: 1.2;
 }
 
 h2 {
   font-size: 2.2rem;
-  margin-bottom: 40px;
+  margin-bottom: 50px;
   text-align: center;
-  font-weight: 600;
+  font-weight: 700;
+  position: relative;
+  display: inline-block;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Decorative underline for H2 */
+h2::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 4px;
+  background: var(--gradient);
+  margin: 10px auto 0;
+  border-radius: 2px;
 }
 
 /* --- 3. Header & Navigation --- */
 header {
-  background-color: var(--navbar-blue-dark);
+  background-color: var(--navbar-bg);
   position: sticky;
   top: 0;
   z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
 nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 5%;
+  padding: 0.5rem 5%;
 }
 
 .logo {
-  color: var(--accent-primary);
+  color: var(--text-light);
   text-decoration: none;
   font-weight: bold;
   font-size: 1.5rem;
@@ -99,14 +122,15 @@ nav {
 }
 
 .nav-link {
-  color: var(--text-light);
+  color: #cbd5e1; /* Soft grey */
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s ease;
+  font-size: 0.95rem;
 }
 
 .nav-link:hover {
-  color: var(--accent-primary);
+  color: var(--accent-secondary); /* Cyan hover */
 }
 
 /* --- 4. Hero Section --- */
@@ -126,21 +150,18 @@ nav {
 
 .avatar-wrapper {
   position: relative;
-  width: 300px;
-  height: 300px;
+  width: 320px;
+  height: 320px;
   border-radius: 50%;
   padding: 6px;
   background: var(--gradient);
-  animation: spin 4s linear infinite;
+  animation: spin 8s linear infinite; /* Slower, smoother spin */
+  box-shadow: var(--shadow-lg);
 }
 
 @keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
 .avatar {
@@ -152,26 +173,32 @@ nav {
 }
 
 .hero-text h1 {
-  font-size: 3.2rem;
-  margin: 0;
-  font-weight: 700;
+  font-size: 2.5rem;
+  margin: 0 0 10px 0;
+  font-weight: 800;
   background: var(--gradient);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+  letter-spacing: -1px;
 }
 
 .hero-text .subtitle {
   font-size: 1.5rem;
-  color: var(--accent-primary);
+  color: var(--text-dark);
   margin-bottom: 20px;
   font-weight: 600;
 }
 
+.hero-text .subtitle b {
+  color: var(--accent-primary);
+}
+
 .hero-description {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   max-width: 500px;
-  margin-bottom: 30px;
+  margin-bottom: 35px;
+  color: var(--text-secondary);
 }
 
 .hero-buttons {
@@ -181,35 +208,37 @@ nav {
 
 .cta-button {
   display: inline-block;
-  padding: 12px 30px;
-  border-radius: 5px;
+  padding: 14px 35px;
+  border-radius: 50px; /* Pill shape buttons */
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 600;
   color: white;
   background: var(--gradient);
   border: none;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
 }
 
 .cta-button:hover {
   transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(23, 42, 69, 0.3);
+  box-shadow: 0 8px 25px rgba(37, 99, 235, 0.6);
 }
 
 .cta-button.secondary {
   background: transparent;
-  border: 2px solid var(--navbar-blue-dark);
-  color: var(--navbar-blue-dark);
+  border: 2px solid var(--accent-primary);
+  color: var(--accent-primary);
+  box-shadow: none;
 }
 .cta-button.secondary:hover {
-  background-color: rgba(52, 152, 219, 0.1);
-  box-shadow: 0 5px 15px rgba(52, 152, 219, 0.2);
+  background-color: rgba(37, 99, 235, 0.05);
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.2);
 }
 
 /* --- 5. Social & Other Sections --- */
 #socials {
   padding-top: 0;
-  padding-bottom: 20px;
+  padding-bottom: 30px;
   text-align: center;
   border-bottom: none;
   display: flex;
@@ -219,68 +248,95 @@ nav {
 
 .social-icon {
   color: var(--text-secondary);
-  transition: color 0.3s ease, transform 0.3s ease;
+  transition: all 0.3s ease;
+  padding: 10px;
+  border-radius: 50%;
+  background-color: transparent;
 }
 
 .social-icon svg {
-  width: 24px;
-  height: 24px;
+  width: 26px;
+  height: 26px;
 }
 
 .social-icon:hover {
   color: var(--accent-primary);
   transform: translateY(-3px);
+  background-color: #e0f2fe; /* Light blue circle on hover */
 }
 
 #about p {
   margin: 0 auto;
   text-align: justify;
   font-size: 1.1rem;
+  max-width: 800px;
+  line-height: 1.8;
 }
 
+/* --- Education Section - Centralised Fix --- */
 #education {
-  text-align: center;
+  display: flex;            /* Enables Flexbox layout */
+  flex-direction: column;   /* Stacks items vertically */
+  align-items: center;      /* Forces all children (Headings, Text, Buttons) to the exact center */
+  text-align: center;       /* Ensures text inside paragraphs is centered */
+}
+
+/* Strictly centers the H2 and overrides any global shifts */
+#education h2 {
+  position: static;       /* Disables the global 'left: 50%' positioning */
+  transform: none;        /* Disables the global transform shift */
+  display: block;         /* Ensures it takes up full width for centering */
+  margin: 0 auto 30px;    /* Standard auto margins to center */
+  max-width: 800px;       /* Prevents it from getting too wide on huge screens */
 }
 
 #education p {
   margin: 0 auto 30px auto;
+  max-width: 700px;
+  text-align: justify;
 }
 
 #interests ul {
   list-style: none;
   padding: 0;
   margin: 0 auto;
-  text-align: center;
 }
 
+/* --- UPDATED: Beautiful White Interest Cards --- */
 .interest-item {
-  background-color: var(--navbar-blue-dark);
-  padding: 15px 20px;
-  margin-bottom: 10px;
-  border-left: 4px solid var(--accent-primary);
-  border-radius: 4px;
-  box-shadow: var(--shadow);
-  color: var(--text-light);
-  text-align: center;
+  background-color: var(--card-bg); /* White background */
+  padding: 25px 30px;
+  margin-bottom: 15px;
+  border-left: 5px solid var(--accent-primary);
+  border-radius: 8px;
+  box-shadow: var(--shadow-md);
+  color: var(--text-secondary);
+  text-align: left;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-top: 1px solid var(--border-color);
+  border-right: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
 }
 
 .interest-item:hover {
-  transform: translateY(-3px);
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+  border-left-color: var(--accent-secondary); /* Color shift on hover */
 }
 
 .interest-item strong {
   display: block;
-  color: #ffffff;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
+  color: var(--text-dark);
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 0.8rem;
 }
 
 /* --- 6. Skills Section --- */
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 20px 40px;
+  gap: 30px 50px;
 }
 
 .skill-item {
@@ -298,58 +354,57 @@ nav {
 
 .skill-bar {
   width: 100%;
-  height: 8px;
-  background-color: white;
-  border-radius: 5px;
+  height: 10px;
+  background-color: #e2e8f0; /* Light grey track */
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 .skill-level {
   height: 100%;
   background: var(--gradient);
-  border-radius: 5px;
+  border-radius: 10px;
   animation: fill-bar 1.5s ease-out 0.5s forwards;
+  box-shadow: 0 0 10px var(--accent-glow);
 }
 
 @keyframes fill-bar {
-  from {
-    width: 0;
-  }
+  from { width: 0; }
 }
 
-/* --- 7. Projects & Contact --- */
+/* --- 7. Projects & Contact (MODERNIZED) --- */
 .project-card {
   display: flex;
   align-items: center;
-  gap: 30px;
-  background-color: var(--navbar-blue-dark);
-  padding: 25px;
-  border-radius: 5px;
-  margin-bottom: 20px;
+  gap: 40px;
+  background-color: var(--card-bg); /* White Card */
+  padding: 30px;
+  border-radius: 16px;
+  margin-bottom: 40px;
   border: 1px solid var(--border-color);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: var(--shadow);
-  color: var(--text-light); /* Text inside remains light */
-}
-.project-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(23, 42, 69, 0.2);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
 }
 
-.project-card h3 {
-  color: var(--text-light); /* Heading inside remains light */
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--accent-primary);
 }
 
 .project-image-wrapper {
   flex-basis: 45%;
   flex-shrink: 0;
   overflow: hidden;
-  border-radius: 5px;
+  border-radius: 10px;
+  box-shadow: var(--shadow-sm);
 }
 
 .project-image-wrapper img {
   width: 100%;
   display: block;
-  transition: transform 0.4s ease;
+  transition: transform 0.5s ease;
 }
 
 .project-card:hover .project-image-wrapper img {
@@ -360,66 +415,94 @@ nav {
   flex-basis: 55%;
 }
 
+.project-text-content h3 {
+  color: var(--text-dark); /* Dark Heading */
+  font-size: 1.5rem;
+  margin-top: 0;
+}
+
+.project-text-content p {
+  color: var(--text-secondary); /* Grey text */
+  text-align: justify;
+}
+
 .project-link {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 8px 20px;
+  border-radius: 6px;
+  background-color: rgba(37, 99, 235, 0.1);
   color: var(--accent-primary);
   text-decoration: none;
   font-weight: bold;
+  transition: all 0.3s ease;
 }
 
+.project-link:hover {
+  background-color: var(--accent-primary);
+  color: white;
+}
+
+/* Form Styles */
 form {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 20px;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 input,
 textarea {
-  padding: 12px;
-  border: 1px solid var(--border-color);
-  border-radius: 5px;
-  background-color: #fdfefe;
+  padding: 15px;
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  background-color: var(--card-bg);
   color: var(--text-dark);
   font-family: inherit;
   font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 input:focus,
 textarea:focus {
   outline: none;
   border-color: var(--accent-primary);
-  box-shadow: 0 0 10px rgba(52, 152, 219, 0.2);
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
 }
 
 /* --- 8. Footer & Back to Top --- */
 footer {
   text-align: center;
-  padding: 10px 20px;
-  background-color: var(--navbar-blue-dark);
+  padding: 20px;
+  background-color: var(--navbar-bg);
   border-top: 1px solid var(--border-color);
-  color: var(--text-light); /* Text inside remains light */
+  color: #94a3b8;
+  margin-top: 50px;
 }
 
 .back-to-top {
   position: fixed;
-  bottom: 25px;
-  right: 25px;
+  bottom: 15px;       /* Slightly closer to bottom edge */
+  right: 20px;        /* Slightly closer to right edge */
   background: var(--gradient);
   color: white;
-  width: 45px;
-  height: 45px;
+  width: 35px;        /* Reduced from 50px */
+  height: 35px;       /* Reduced from 50px */
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 22px;
+  font-size: 18px;    /* Reduced arrow size from 24px */
   font-weight: bold;
   text-decoration: none;
-  box-shadow: var(--shadow);
+  box-shadow: var(--shadow-lg);
   transition: transform 0.3s ease;
+  z-index: 900;
 }
 
 .back-to-top:hover {
-  transform: translateY(-3px);
+  transform: translateY(-5px);
 }
 
 /* --- 9. Hamburger Menu (CSS-Only) --- */
@@ -455,24 +538,54 @@ footer {
   width: 0;
 }
 
+/* --- WhatsApp Floating Button --- */
+.whatsapp-btn {
+  position: fixed;
+  bottom: 15px;       /* Aligned with Back to Top */
+  left: 20px;         /* Positioned on the Left side */
+  background-color: #25d366; /* Official WhatsApp Green */
+  color: white;
+  width: 40px;        /* Slightly larger than scroll button for visibility */
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;    /* Icon size */
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  z-index: 1000;      /* Ensures it floats above everything */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.whatsapp-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(37, 211, 102, 0.4); /* Green glow on hover */
+}
+
 /* --- 10. Responsive Design --- */
 @media (max-width: 768px) {
   section {
-    padding: 20px 0;
+    padding: 40px 0;
+  }
+
+  h2 {
+    font-size: 1.8rem;
   }
 
   #hero {
     flex-direction: column-reverse;
     text-align: center;
     gap: 40px;
+    padding-top: 30px;
   }
 
   #socials {
-    margin-top: 30px;
+    margin-top: 20px;
   }
 
   #about p {
-    text-align: center;
+    text-align: justify;
   }
 
   .hero-text {
@@ -481,8 +594,8 @@ footer {
 
   .avatar-wrapper {
     order: 1;
-    width: 200px;
-    height: 200px;
+    width: 220px;
+    height: 220px;
   }
 
   .hero-description {
@@ -492,6 +605,8 @@ footer {
     justify-content: center;
   }
 
+  /* Inside @media (max-width: 768px) */
+
   .nav-links {
     display: none;
     flex-direction: column;
@@ -499,14 +614,18 @@ footer {
     top: 100%;
     left: 0;
     width: 100%;
-    background-color: var(--navbar-blue-dark);
+    background-color: var(--navbar-bg);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 0.5rem 0;
+    padding: 0.5rem 0;  /* Reduced outer padding */
+    border-top: 1px solid rgba(255,255,255,0.1);
+    gap: 0;             /* <--- CRITICAL: Removes the 30px gap inherited from desktop */
   }
 
   .nav-link {
-    padding: 0.5rem 1rem;
+    padding: 12px 0;    /* <--- Reduced from 1rem to 12px */
     text-align: center;
+    display: block;
+    width: 100%;        /* Ensures the click area spans the full width */
   }
 
   .nav-toggle-label {
@@ -523,9 +642,15 @@ footer {
     text-align: center;
   }
 
+  /* Stack Projects on Mobile */
   .project-card {
     flex-direction: column;
     text-align: center;
+    padding: 20px;
+  }
+  
+  .project-image-wrapper {
+    width: 100%;
   }
 }
 
@@ -533,7 +658,121 @@ footer {
   .hero-text h1 {
     font-size: 2.5rem;
   }
-  h2 {
-    font-size: 1.8rem;
+  .hero-text .subtitle {
+    font-size: 1.2rem;
   }
+}
+
+/* Styling the Typing Text */
+.auto-type {
+  color: var(--accent-primary); /* Makes the changing text Electric Blue */
+  font-weight: 800;
+}
+
+/* Style for the currently active link */
+.nav-link.active-link {
+  color: var(--accent-primary); /* Electric Blue */
+  font-weight: 700;
+  position: relative;
+}
+
+/* Optional: Add a small dot under the active link */
+.nav-link.active-link::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 6px;
+  background-color: var(--accent-secondary);
+  border-radius: 50%;
+}
+
+/* --- DARK MODE VARIABLES --- */
+body.dark-mode {
+  /* Swap the background to dark slate */
+  --bg-light: #0f172a;
+  
+  /* Swap cards to a slightly lighter dark grey */
+  --card-bg: #1e293b;
+  
+  /* Make text light */
+  --text-dark: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-light: #f1f5f9;
+  
+  /* Update Navbar to be even darker */
+  --navbar-bg: #020617;
+  
+  /* Darken borders so they aren't too bright */
+  --border-color: #334155;
+  
+  /* Adjust shadows to be visible on dark backgrounds */
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.5);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+}
+
+/* Style the Toggle Button */
+.theme-btn {
+  background: transparent;
+  border: 2px solid var(--border-color); /* Light border */
+  color: var(--text-light); /* Icon color */
+  padding: 4px 6px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 15px; /* Spacing from the last link */
+}
+
+.theme-btn:hover {
+  background-color: var(--accent-primary);
+  border-color: var(--accent-primary);
+  color: white;
+  transform: rotate(15deg); /* Fun little spin on hover */
+}
+
+/* Fix for Mobile: Ensure button fits in the menu */
+@media (max-width: 768px) {
+  .theme-btn {
+    margin: 10px auto; /* Center it */
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* --- 11. Custom Scrollbar --- */
+
+/* Width of the scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+/* Track (The background area) */
+::-webkit-scrollbar-track {
+  background: var(--bg-light); /* Matches page background */
+}
+
+/* Handle (The moving blue bar) */
+::-webkit-scrollbar-thumb {
+  background-color: var(--accent-primary); /* Electric Blue */
+  border-radius: 20px;       /* Rounded edges */
+  border: 3px solid var(--bg-light); /* Creates a nice "floating" effect */
+}
+
+/* Handle on hover (Darker when you grab it) */
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--accent-secondary); /* Cyan/Teal glow */
+}
+
+/* --- Firefox Support --- */
+/* Firefox handles scrollbars differently */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent-primary) var(--bg-light);
 }
