@@ -345,7 +345,11 @@
 
       <section id="contact" data-aos="fade-up">
         <h2>Contact Me</h2>
-        <form action="https://formspree.io/f/meozlvyd" method="POST">
+        <form
+          id="contact-form"
+          action="https://formspree.io/f/meozlvyd"
+          method="POST"
+        >
           <input type="text" name="name" placeholder="Your Name" required />
           <input type="email" name="email" placeholder="Your Email" required />
           <textarea
@@ -353,7 +357,9 @@
             placeholder="Your Message"
             required
           ></textarea>
-          <button type="submit" class="cta-button">Send Message</button>
+          <button type="submit" class="cta-button" id="form-button">
+            Send Message
+          </button>
         </form>
       </section>
     </main>
@@ -460,5 +466,86 @@
         }
       });
     </script>
+    <div id="toast" class="toast">
+      <div class="toast-content">
+        <i class="fas fa-check-circle check"></i>
+        <div class="message">
+          <span class="text text-1">Success</span>
+          <span class="text text-2">Your message has been sent!</span>
+        </div>
+      </div>
+      <i class="fas fa-times close" onclick="closeToast()"></i>
+    </div>
   </body>
+  <script>
+      const form = document.getElementById("contact-form");
+      const button = document.getElementById("form-button");
+      const toast = document.getElementById("toast");
+      const toastMessage1 = toast.querySelector(".text-1");
+      const toastMessage2 = toast.querySelector(".text-2");
+
+      async function handleSubmit(event) {
+        event.preventDefault();
+        
+        // 1. Change Button Text to show loading
+        const originalText = button.innerText;
+        button.innerText = "Sending...";
+        button.disabled = true;
+
+        const status = document.getElementById("my-form-status");
+        const data = new FormData(event.target);
+
+        // 2. Send Data to Formspree using Fetch
+        fetch(event.target.action, {
+          method: form.method,
+          body: data,
+          headers: {
+              'Accept': 'application/json'
+          }
+        }).then(response => {
+          if (response.ok) {
+            // SUCCESS
+            showToast("Success", "Message sent successfully!", "success");
+            form.reset(); // Clear the form
+          } else {
+            // ERROR (Formspree validation error)
+            response.json().then(data => {
+              if (Object.hasOwn(data, 'errors')) {
+                showToast("Error", data["errors"].map(error => error["message"]).join(", "), "error");
+              } else {
+                showToast("Error", "Oops! There was a problem.", "error");
+              }
+            })
+          }
+        }).catch(error => {
+          // NETWORK ERROR
+          showToast("Error", "Check your internet connection.", "error");
+        }).finally(() => {
+           // Reset button
+           button.innerText = originalText;
+           button.disabled = false;
+        });
+      }
+      
+      form.addEventListener("submit", handleSubmit);
+
+      // Function to display the Toast
+      function showToast(title, message, type) {
+        toast.className = "toast"; // Reset classes
+        toast.classList.add("active");
+        toast.classList.add(type); // 'success' or 'error'
+        
+        toastMessage1.innerText = title;
+        toastMessage2.innerText = message;
+
+        // Auto hide after 4 seconds
+        setTimeout(() => {
+          closeToast();
+        }, 4000);
+      }
+
+      function closeToast() {
+        toast.classList.remove("active");
+      }
+    </script>
 </html>
