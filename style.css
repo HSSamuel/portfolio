@@ -302,74 +302,156 @@ nav {
   margin: 0 auto;
 }
 
-/* --- UPDATED: Beautiful White Interest Cards --- */
+/* --- UPDATED: Robust Interests Section --- */
+.interests-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+}
+
 .interest-item {
-  background-color: var(--card-bg); /* White background */
-  padding: 25px 30px;
-  margin-bottom: 15px;
+  background-color: var(--card-bg);
+  padding: 30px;
   border-left: 5px solid var(--accent-primary);
-  border-radius: 8px;
+  border-radius: 12px;
   box-shadow: var(--shadow-md);
-  color: var(--text-secondary);
-  text-align: left;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border-top: 1px solid var(--border-color);
-  border-right: 1px solid var(--border-color);
-  border-bottom: 1px solid var(--border-color);
+  text-align: left; /* Keep text left aligned */
+  position: relative;
+  overflow: hidden;
 }
 
 .interest-item:hover {
   transform: translateY(-5px);
   box-shadow: var(--shadow-lg);
-  border-left-color: var(--accent-secondary); /* Color shift on hover */
+}
+
+/* The Icon Circle */
+.icon-box {
+  width: 60px;
+  height: 60px;
+  background: rgba(37, 99, 235, 0.1); /* Light Blue Background */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  color: var(--accent-primary);
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.interest-item:hover .icon-box {
+  background: var(--gradient);
+  color: white;
+  transform: rotateY(180deg); /* 3D Spin effect on hover */
 }
 
 .interest-item strong {
   display: block;
+  font-size: 1.25rem;
   color: var(--text-dark);
-  font-size: 1.2rem;
-  font-weight: 700;
-  margin-bottom: 0.8rem;
+  margin-bottom: 10px;
 }
 
-/* --- 6. Skills Section --- */
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 30px 50px;
+.interest-item p {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
 }
 
-.skill-item {
+/* --- UPDATED: Categorized Tech Stack --- */
+.tech-stack-container {
   display: flex;
-  flex-direction: column-reverse;
+  gap: 50px;
+  justify-content: center;
+  flex-wrap: wrap; /* Wraps on mobile */
+  margin-top: 20px;
+}
+
+.stack-category {
+  flex: 1;
+  min-width: 300px; /* Ensures columns don't get too skinny */
+  background-color: var(--card-bg);
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-color);
+  transition: transform 0.3s ease;
+}
+
+.stack-category:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--accent-primary);
+}
+
+.stack-category h3 {
+  text-align: center;
+  font-size: 1.4rem;
+  margin-bottom: 25px;
+  color: var(--text-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   gap: 10px;
 }
 
-.skill-item h3 {
-  font-size: 1rem;
-  color: var(--text-dark);
+.stack-category h3 i {
+  color: var(--accent-primary);
+}
+
+/* The Grid of Buttons */
+.stack-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 items per row inside the card */
+  gap: 15px;
+}
+
+.stack-item {
+  background-color: var(--bg-light);
+  padding: 15px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
   font-weight: 600;
-  margin: 0;
+  color: var(--text-secondary);
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
 }
 
-.skill-bar {
-  width: 100%;
-  height: 10px;
-  background-color: #e2e8f0; /* Light grey track */
-  border-radius: 10px;
-  overflow: hidden;
+.stack-item i {
+  font-size: 1.5rem; /* Larger icons */
 }
 
-.skill-level {
-  height: 100%;
-  background: var(--gradient);
-  border-radius: 10px;
-  animation: fill-bar 1.5s ease-out 0.5s forwards;
-  box-shadow: 0 0 10px var(--accent-glow);
+/* Hover Effect for individual items */
+.stack-item:hover {
+  background-color: white;
+  border-color: var(--accent-secondary);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  transform: translateX(5px); /* Slight slide right */
+  color: var(--text-dark);
 }
 
-@keyframes fill-bar {
-  from { width: 0; }
+/* Dark Mode Adjustment for Stack Items */
+body.dark-mode .stack-item {
+  background-color: #0f172a; /* Darker bg for items in dark mode */
+}
+body.dark-mode .stack-item:hover {
+  background-color: #1e293b;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+  .tech-stack-container {
+    flex-direction: column;
+    gap: 30px;
+  }
+  
+  .stack-grid {
+    grid-template-columns: 1fr; /* Stack items vertically on very small screens */
+  }
 }
 
 /* --- 7. Projects & Contact (MODERNIZED) --- */
@@ -441,34 +523,6 @@ nav {
 .project-link:hover {
   background-color: var(--accent-primary);
   color: white;
-}
-
-/* Form Styles */
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-input,
-textarea {
-  padding: 15px;
-  border: 2px solid var(--border-color);
-  border-radius: 8px;
-  background-color: var(--card-bg);
-  color: var(--text-dark);
-  font-family: inherit;
-  font-size: 1rem;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-input:focus,
-textarea:focus {
-  outline: none;
-  border-color: var(--accent-primary);
-  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
 }
 
 /* --- 8. Footer & Back to Top --- */
@@ -863,4 +917,234 @@ html {
 }
 .toast.error .check::before {
   content: "\f00d"; /* Change checkmark to X icon (FontAwesome) */
+}
+
+/* --- Project Tech Stack Badges --- */
+.project-tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 20px 0 15px 0; /* Space above and below the tags */
+}
+
+.tech-tag {
+  font-size: 0.85rem;
+  font-weight: 600;
+  background-color: var(--bg-light); /* Light background */
+  color: var(--text-secondary);     /* Dark grey text */
+  padding: 5px 12px;
+  border-radius: 20px;              /* Pill shape */
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+/* Hover effect for the tags */
+.tech-tag:hover {
+  background-color: rgba(37, 99, 235, 0.1); /* Light Blue tint */
+  color: var(--accent-primary);             /* Electric Blue text */
+  border-color: var(--accent-primary);
+  transform: translateY(-2px);
+}
+
+/* Dark Mode Adjustment */
+body.dark-mode .tech-tag {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* --- UPDATED: Contact Section Layout --- */
+.contact-container {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  align-items: flex-start; /* Aligns top of form and info card */
+  flex-wrap: wrap; /* Stacks on mobile */
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Left Column: Contact Info */
+.contact-info {
+  flex: 1;
+  min-width: 300px;
+  background: var(--gradient); /* Blue gradient background */
+  color: white;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: var(--shadow-lg);
+}
+
+.contact-info h3 {
+  color: white; /* Override default dark text */
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+}
+
+.contact-info p {
+  opacity: 0.9;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+}
+
+.contact-item i {
+  font-size: 1.2rem;
+  background: rgba(255, 255, 255, 0.2); /* Semi-transparent circle */
+  padding: 10px;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-socials {
+  margin-top: 30px;
+  display: flex;
+  gap: 15px;
+}
+
+.contact-socials a {
+  color: white;
+  font-size: 1.5rem;
+  transition: transform 0.3s ease;
+  background: rgba(255, 255, 255, 0.1);
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+.contact-socials a:hover {
+  background: white;
+  color: var(--accent-primary);
+  transform: translateY(-3px);
+}
+
+/* Right Column: The Form */
+.contact-form {
+  flex: 1.5; /* Form takes slightly more width */
+  min-width: 300px;
+  background-color: var(--card-bg);
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-color);
+}
+
+.contact-form h3 {
+  margin-bottom: 20px;
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+/* Update inputs to look cleaner */
+input, textarea {
+  width: 100%; /* Ensure they fill the container */
+  background-color: var(--bg-light);
+  border: 1px solid var(--border-color);
+  padding: 15px;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  /* Box-sizing fix is essential for padding */
+  box-sizing: border-box; 
+}
+
+textarea {
+  height: 150px;
+  resize: vertical; /* Allow user to resize vertically only */
+}
+
+input:focus, textarea:focus {
+  border-color: var(--accent-primary);
+  background-color: white;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+  .contact-container {
+    flex-direction: column;
+  }
+  
+  .contact-info, .contact-form {
+    width: 100%; /* Full width on mobile */
+    padding: 30px;
+  }
+
+  .contact-info {
+    width: 85%;        /* <--- Reduced from 100% */
+    max-width: 350px;  /* <--- UPDATED: Adjusted to 350px so it fits well */
+    margin: 0 auto;    /* <--- Centers the card horizontally */
+    padding: 25px 20px;
+    text-align: center;
+  }
+
+  .contact-form {
+    width: 85%;        /* Matches the info card width */
+    max-width: 400px;  /* <--- UPDATED: Adjusted to 400px for easier typing */
+    margin: 0 auto;    /* Centers the form horizontally */
+    padding: 25px 20px;
+  }
+  
+  /* Optional: Ensure the button doesn't look too huge inside the smaller card */
+  .contact-form .cta-button {
+    width: 100%;       /* Makes button fill the card width */
+  }
+
+  /* Shrink Heading */
+  .contact-info h3 {
+    font-size: 1.4rem; /* Reduced from 1.8rem */
+    margin-bottom: 10px;
+  }
+
+  /* Shrink Paragraph Text */
+  .contact-info p {
+    font-size: 0.95rem;
+    margin-bottom: 20px; /* Reduced space below text */
+  }
+
+  /* Compact the Contact Details Rows */
+  .contact-item {
+    justify-content: center; /* Center the items */
+    margin-bottom: 10px; /* Tighter spacing */
+    font-size: 0.9rem; /* Smaller text */
+    gap: 10px;
+  }
+
+  /* Shrink the Circle Icons next to email/phone */
+  .contact-item i {
+    width: 32px;  /* Reduced from 40px */
+    height: 32px; /* Reduced from 40px */
+    font-size: 0.9rem;
+    padding: 8px;
+  }
+
+  /* Shrink Social Media Buttons */
+  .contact-socials {
+    margin-top: 20px;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .contact-socials a {
+    width: 38px;  /* Reduced from 45px */
+    height: 38px; /* Reduced from 45px */
+    font-size: 1.2rem;
+  }
 }
