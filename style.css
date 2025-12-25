@@ -362,22 +362,24 @@ nav {
 
 /* --- UPDATED: Categorized Tech Stack --- */
 .tech-stack-container {
-  display: flex;
-  gap: 50px;
-  justify-content: center;
-  flex-wrap: wrap; /* Wraps on mobile */
+  display: grid; /* Changed from flex to grid */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Matches Interests Grid */
+  gap: 25px; /* Matches Interests Gap */
   margin-top: 20px;
 }
 
 .stack-category {
-  flex: 1;
-  min-width: 300px; /* Ensures columns don't get too skinny */
+  /* Removed flex: 1 and min-width since Grid handles sizing now */
   background-color: var(--card-bg);
   padding: 30px;
-  border-radius: 16px;
+  border-radius: 12px; /* Matches Interest Item radius */
   box-shadow: var(--shadow-md);
-  border: 1px solid var(--border-color);
-  transition: transform 0.3s ease;
+  border: 1px solid var(--border-color); /* Kept the border */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+  /* Ensure height matches if content varies */
+  display: flex;
+  flex-direction: column; 
 }
 
 .stack-category:hover {
@@ -404,8 +406,9 @@ nav {
 /* The Grid of Buttons */
 .stack-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2 items per row inside the card */
+  grid-template-columns: repeat(2, 1fr); 
   gap: 15px;
+  flex-grow: 1; /* Ensures it fills the space */
 }
 
 .stack-item {
@@ -419,10 +422,11 @@ nav {
   color: var(--text-secondary);
   transition: all 0.3s ease;
   border: 1px solid transparent;
+  font-size: 0.95rem; /* Slightly adjusted to fit better */
 }
 
 .stack-item i {
-  font-size: 1.5rem; /* Larger icons */
+  font-size: 1.4rem;
 }
 
 /* Hover Effect for individual items */
@@ -430,13 +434,13 @@ nav {
   background-color: white;
   border-color: var(--accent-secondary);
   box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-  transform: translateX(5px); /* Slight slide right */
+  transform: translateX(5px); 
   color: var(--text-dark);
 }
 
 /* Dark Mode Adjustment for Stack Items */
 body.dark-mode .stack-item {
-  background-color: #0f172a; /* Darker bg for items in dark mode */
+  background-color: #0f172a; 
 }
 body.dark-mode .stack-item:hover {
   background-color: #1e293b;
@@ -444,13 +448,14 @@ body.dark-mode .stack-item:hover {
 
 /* Mobile Adjustments */
 @media (max-width: 768px) {
+  /* No special flex-direction needed anymore because Grid handles stacking automatically! */
+  
   .tech-stack-container {
-    flex-direction: column;
-    gap: 30px;
+    grid-template-columns: 1fr; /* Stacks vertically on mobile */
   }
   
   .stack-grid {
-    grid-template-columns: 1fr; /* Stack items vertically on very small screens */
+    grid-template-columns: 1fr; /* Stack items inside the card too */
   }
 }
 
