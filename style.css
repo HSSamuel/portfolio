@@ -7,28 +7,32 @@
 /* --- 1. Basic Setup & Variables --- */
 :root {
   /* --- NEW MODERN COLOR PALETTE --- */
-  
+
   /* Backgrounds */
-  --bg-light: #f8fafc;       /* Cool light grey (modern standard) */
-  --card-bg: #ffffff;        /* Pure white for cards */
-  --navbar-bg: #0f172a;      /* Deep Midnight Blue for header */
-  
+  --bg-light: #f8fafc; /* Cool light grey (modern standard) */
+  --card-bg: #ffffff; /* Pure white for cards */
+  --navbar-bg: #0f172a; /* Deep Midnight Blue for header */
+
   /* Text Colors */
-  --text-dark: #1e293b;      /* Dark Slate for Headings */
+  --text-dark: #1e293b; /* Dark Slate for Headings */
   --text-secondary: #475569; /* Medium Slate for paragraph text */
-  --text-light: #f1f5f9;     /* Light text for inside Navbar/Dark areas */
-  
+  --text-light: #f1f5f9; /* Light text for inside Navbar/Dark areas */
+
   /* Accents & Brand Colors */
   --accent-primary: #2563eb; /* Vibrant Electric Blue */
   --accent-secondary: #06b6d4; /* Cyan/Teal for gradients */
   --accent-glow: rgba(37, 99, 235, 0.2); /* Soft blue glow */
-  
+
   /* Gradients */
-  --gradient: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
-  
+  --gradient: linear-gradient(
+    135deg,
+    var(--accent-primary),
+    var(--accent-secondary)
+  );
+
   /* Borders & Shadows */
-  --border-color: #e2e8f0;   /* Light grey border */
-  --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+  --border-color: #e2e8f0; /* Light grey border */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1); /* Floating effect */
 }
@@ -75,7 +79,7 @@ h2 {
 
 /* Decorative underline for H2 */
 h2::after {
-  content: '';
+  content: "";
   display: block;
   width: 50px;
   height: 4px;
@@ -90,7 +94,7 @@ header {
   position: sticky;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 nav {
@@ -160,8 +164,12 @@ nav {
 }
 
 @keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .avatar {
@@ -275,19 +283,19 @@ nav {
 
 /* --- Education Section - Centralised Fix --- */
 #education {
-  display: flex;            /* Enables Flexbox layout */
-  flex-direction: column;   /* Stacks items vertically */
-  align-items: center;      /* Forces all children (Headings, Text, Buttons) to the exact center */
-  text-align: center;       /* Ensures text inside paragraphs is centered */
+  display: flex; /* Enables Flexbox layout */
+  flex-direction: column; /* Stacks items vertically */
+  align-items: center; /* Forces all children (Headings, Text, Buttons) to the exact center */
+  text-align: center; /* Ensures text inside paragraphs is centered */
 }
 
 /* Strictly centers the H2 and overrides any global shifts */
 #education h2 {
-  position: static;       /* Disables the global 'left: 50%' positioning */
-  transform: none;        /* Disables the global transform shift */
-  display: block;         /* Ensures it takes up full width for centering */
-  margin: 0 auto 30px;    /* Standard auto margins to center */
-  max-width: 800px;       /* Prevents it from getting too wide on huge screens */
+  position: static; /* Disables the global 'left: 50%' positioning */
+  transform: none; /* Disables the global transform shift */
+  display: block; /* Ensures it takes up full width for centering */
+  margin: 0 auto 30px; /* Standard auto margins to center */
+  max-width: 800px; /* Prevents it from getting too wide on huge screens */
 }
 
 #education p {
@@ -363,7 +371,10 @@ nav {
 /* --- UPDATED: Categorized Tech Stack --- */
 .tech-stack-container {
   display: grid; /* Changed from flex to grid */
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Matches Interests Grid */
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(300px, 1fr)
+  ); /* Matches Interests Grid */
   gap: 25px; /* Matches Interests Gap */
   margin-top: 20px;
 }
@@ -376,10 +387,10 @@ nav {
   box-shadow: var(--shadow-md);
   border: 1px solid var(--border-color); /* Kept the border */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  
+
   /* Ensure height matches if content varies */
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
 }
 
 .stack-category:hover {
@@ -406,7 +417,7 @@ nav {
 /* The Grid of Buttons */
 .stack-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); 
+  grid-template-columns: repeat(2, 1fr);
   gap: 15px;
   flex-grow: 1; /* Ensures it fills the space */
 }
@@ -433,14 +444,14 @@ nav {
 .stack-item:hover {
   background-color: white;
   border-color: var(--accent-secondary);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-  transform: translateX(5px); 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transform: translateX(5px);
   color: var(--text-dark);
 }
 
 /* Dark Mode Adjustment for Stack Items */
 body.dark-mode .stack-item {
-  background-color: #0f172a; 
+  background-color: #0f172a;
 }
 body.dark-mode .stack-item:hover {
   background-color: #1e293b;
@@ -449,11 +460,11 @@ body.dark-mode .stack-item:hover {
 /* Mobile Adjustments */
 @media (max-width: 768px) {
   /* No special flex-direction needed anymore because Grid handles stacking automatically! */
-  
+
   .tech-stack-container {
     grid-template-columns: 1fr; /* Stacks vertically on mobile */
   }
-  
+
   .stack-grid {
     grid-template-columns: 1fr; /* Stack items inside the card too */
   }
@@ -542,17 +553,17 @@ footer {
 
 .back-to-top {
   position: fixed;
-  bottom: 15px;       /* Slightly closer to bottom edge */
-  right: 20px;        /* Slightly closer to right edge */
+  bottom: 15px; /* Slightly closer to bottom edge */
+  right: 20px; /* Slightly closer to right edge */
   background: var(--gradient);
   color: white;
-  width: 35px;        /* Reduced from 50px */
-  height: 35px;       /* Reduced from 50px */
+  width: 35px; /* Reduced from 50px */
+  height: 35px; /* Reduced from 50px */
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 18px;    /* Reduced arrow size from 24px */
+  font-size: 18px; /* Reduced arrow size from 24px */
   font-weight: bold;
   text-decoration: none;
   box-shadow: var(--shadow-lg);
@@ -600,20 +611,20 @@ footer {
 /* --- WhatsApp Floating Button --- */
 .whatsapp-btn {
   position: fixed;
-  bottom: 15px;       /* Aligned with Back to Top */
-  left: 20px;         /* Positioned on the Left side */
+  bottom: 15px; /* Aligned with Back to Top */
+  left: 20px; /* Positioned on the Left side */
   background-color: #25d366; /* Official WhatsApp Green */
   color: white;
-  width: 40px;        /* Slightly larger than scroll button for visibility */
+  width: 40px; /* Slightly larger than scroll button for visibility */
   height: 40px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 24px;    /* Icon size */
+  font-size: 24px; /* Icon size */
   text-decoration: none;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  z-index: 1000;      /* Ensures it floats above everything */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000; /* Ensures it floats above everything */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -675,16 +686,16 @@ footer {
     width: 100%;
     background-color: var(--navbar-bg);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 0.5rem 0;  /* Reduced outer padding */
-    border-top: 1px solid rgba(255,255,255,0.1);
-    gap: 0;             /* <--- CRITICAL: Removes the 30px gap inherited from desktop */
+    padding: 0.5rem 0; /* Reduced outer padding */
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    gap: 0; /* <--- CRITICAL: Removes the 30px gap inherited from desktop */
   }
 
   .nav-link {
-    padding: 12px 0;    /* <--- Reduced from 1rem to 12px */
+    padding: 12px 0; /* <--- Reduced from 1rem to 12px */
     text-align: center;
     display: block;
-    width: 100%;        /* Ensures the click area spans the full width */
+    width: 100%; /* Ensures the click area spans the full width */
   }
 
   .nav-toggle-label {
@@ -707,7 +718,7 @@ footer {
     text-align: center;
     padding: 20px;
   }
-  
+
   .project-image-wrapper {
     width: 100%;
   }
@@ -737,7 +748,7 @@ footer {
 
 /* Optional: Add a small dot under the active link */
 .nav-link.active-link::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -5px;
   left: 50%;
@@ -752,23 +763,23 @@ footer {
 body.dark-mode {
   /* Swap the background to dark slate */
   --bg-light: #0f172a;
-  
+
   /* Swap cards to a slightly lighter dark grey */
   --card-bg: #1e293b;
-  
+
   /* Make text light */
   --text-dark: #f8fafc;
   --text-secondary: #cbd5e1;
   --text-light: #f1f5f9;
-  
+
   /* Update Navbar to be even darker */
   --navbar-bg: #020617;
-  
+
   /* Darken borders so they aren't too bright */
   --border-color: #334155;
-  
+
   /* Adjust shadows to be visible on dark backgrounds */
-  --shadow-sm: 0 1px 3px rgba(0,0,0,0.5);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.5);
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
 }
@@ -820,7 +831,7 @@ body.dark-mode {
 /* Handle (The moving blue bar) */
 ::-webkit-scrollbar-thumb {
   background-color: var(--accent-primary); /* Electric Blue */
-  border-radius: 20px;       /* Rounded edges */
+  border-radius: 20px; /* Rounded edges */
   border: 3px solid var(--bg-light); /* Creates a nice "floating" effect */
 }
 
@@ -936,9 +947,9 @@ html {
   font-size: 0.85rem;
   font-weight: 600;
   background-color: var(--bg-light); /* Light background */
-  color: var(--text-secondary);     /* Dark grey text */
+  color: var(--text-secondary); /* Dark grey text */
   padding: 5px 12px;
-  border-radius: 20px;              /* Pill shape */
+  border-radius: 20px; /* Pill shape */
   border: 1px solid var(--border-color);
   transition: all 0.3s ease;
   cursor: default;
@@ -947,7 +958,7 @@ html {
 /* Hover effect for the tags */
 .tech-tag:hover {
   background-color: rgba(37, 99, 235, 0.1); /* Light Blue tint */
-  color: var(--accent-primary);             /* Electric Blue text */
+  color: var(--accent-primary); /* Electric Blue text */
   border-color: var(--accent-primary);
   transform: translateY(-2px);
 }
@@ -960,28 +971,29 @@ body.dark-mode .tech-tag {
 
 /* --- UPDATED: Contact Section Layout --- */
 .contact-container {
-  display: flex;
-  gap: 40px;
-  justify-content: center;
-  align-items: flex-start; /* Aligns top of form and info card */
-  flex-wrap: wrap; /* Stacks on mobile */
-  max-width: 1000px;
+  display: grid; /* Switched to Grid */
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(300px, 1fr)
+  ); /* Exact same sizing rule as Interests */
+  gap: 25px; /* Same gap as Interests */
   margin: 0 auto;
 }
 
 /* Left Column: Contact Info */
 .contact-info {
-  flex: 1;
-  min-width: 300px;
-  background: var(--gradient); /* Blue gradient background */
+  background: var(--gradient);
   color: white;
-  padding: 40px;
-  border-radius: 16px;
+  padding: 30px; /* Reduced from 40px to match Interest items */
+  border-radius: 12px; /* Match Interest radius */
   box-shadow: var(--shadow-lg);
+  /* Flex direction ensures content distributes evenly */
+  display: flex;
+  flex-direction: column;
 }
 
 .contact-info h3 {
-  color: white; /* Override default dark text */
+  color: white;
   font-size: 1.8rem;
   margin-bottom: 15px;
 }
@@ -1002,7 +1014,7 @@ body.dark-mode .tech-tag {
 
 .contact-item i {
   font-size: 1.2rem;
-  background: rgba(255, 255, 255, 0.2); /* Semi-transparent circle */
+  background: rgba(255, 255, 255, 0.2);
   padding: 10px;
   border-radius: 50%;
   width: 40px;
@@ -1040,13 +1052,14 @@ body.dark-mode .tech-tag {
 
 /* Right Column: The Form */
 .contact-form {
-  flex: 1.5; /* Form takes slightly more width */
-  min-width: 300px;
   background-color: var(--card-bg);
-  padding: 40px;
-  border-radius: 16px;
+  padding: 30px; /* Reduced from 40px to match Interest items */
+  border-radius: 12px; /* Match Interest radius */
   box-shadow: var(--shadow-md);
   border: 1px solid var(--border-color);
+  /* Flex direction ensures consistent height */
+  display: flex;
+  flex-direction: column;
 }
 
 .contact-form h3 {
@@ -1057,99 +1070,69 @@ body.dark-mode .tech-tag {
   margin-bottom: 20px;
 }
 
-/* Update inputs to look cleaner */
-input, textarea {
-  width: 100%; /* Ensure they fill the container */
-  background-color: var(--bg-light);
-  border: 1px solid var(--border-color);
+/* Inputs styling remains the same */
+input,
+textarea {
+  width: 100%;
   padding: 15px;
+  border: 2px solid var(--border-color);
   border-radius: 8px;
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+  font-family: inherit;
   font-size: 1rem;
-  transition: all 0.3s ease;
-  /* Box-sizing fix is essential for padding */
-  box-sizing: border-box; 
+  transition: border-color 0.3s ease;
+  box-sizing: border-box;
 }
 
 textarea {
   height: 150px;
-  resize: vertical; /* Allow user to resize vertically only */
+  resize: vertical;
 }
 
-input:focus, textarea:focus {
+input:focus,
+textarea:focus {
+  outline: none;
   border-color: var(--accent-primary);
-  background-color: white;
+  background-color: var(--card-bg);
   box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
 }
 
 /* Mobile Adjustments */
 @media (max-width: 768px) {
+  /* --- Contact Section Mobile Reset --- */
   .contact-container {
-    flex-direction: column;
-  }
-  
-  .contact-info, .contact-form {
-    width: 100%; /* Full width on mobile */
-    padding: 30px;
+    grid-template-columns: 1fr; /* Force single column stack */
+    gap: 25px;
   }
 
-  .contact-info {
-    width: 85%;        /* <--- Reduced from 100% */
-    max-width: 350px;  /* <--- UPDATED: Adjusted to 350px so it fits well */
-    margin: 0 auto;    /* <--- Centers the card horizontally */
-    padding: 25px 20px;
-    text-align: center;
-  }
-
+  .contact-info,
   .contact-form {
-    width: 85%;        /* Matches the info card width */
-    max-width: 400px;  /* <--- UPDATED: Adjusted to 400px for easier typing */
-    margin: 0 auto;    /* Centers the form horizontally */
-    padding: 25px 20px;
-  }
-  
-  /* Optional: Ensure the button doesn't look too huge inside the smaller card */
-  .contact-form .cta-button {
-    width: 100%;       /* Makes button fill the card width */
+    /* RESET: Remove custom widths so they fill the grid like Interests */
+    width: auto;
+    max-width: none;
+    margin: 0;
+    padding: 30px; /* Keep standard padding */
+    text-align: center; /* Keep text centered on mobile */
   }
 
-  /* Shrink Heading */
+  /* Keep the internal elements compact */
   .contact-info h3 {
-    font-size: 1.4rem; /* Reduced from 1.8rem */
+    font-size: 1.4rem;
     margin-bottom: 10px;
   }
 
-  /* Shrink Paragraph Text */
   .contact-info p {
     font-size: 0.95rem;
-    margin-bottom: 20px; /* Reduced space below text */
+    margin-bottom: 20px;
   }
 
-  /* Compact the Contact Details Rows */
   .contact-item {
-    justify-content: center; /* Center the items */
-    margin-bottom: 10px; /* Tighter spacing */
-    font-size: 0.9rem; /* Smaller text */
-    gap: 10px;
-  }
-
-  /* Shrink the Circle Icons next to email/phone */
-  .contact-item i {
-    width: 32px;  /* Reduced from 40px */
-    height: 32px; /* Reduced from 40px */
-    font-size: 0.9rem;
-    padding: 8px;
-  }
-
-  /* Shrink Social Media Buttons */
-  .contact-socials {
-    margin-top: 20px;
     justify-content: center;
-    gap: 10px;
+    font-size: 0.9rem;
   }
 
-  .contact-socials a {
-    width: 38px;  /* Reduced from 45px */
-    height: 38px; /* Reduced from 45px */
-    font-size: 1.2rem;
+  .contact-socials {
+    justify-content: center;
   }
 }
