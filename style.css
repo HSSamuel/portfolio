@@ -972,10 +972,7 @@ body.dark-mode .tech-tag {
 /* --- UPDATED: Contact Section Layout --- */
 .contact-container {
   display: grid; /* Switched to Grid */
-  grid-template-columns: repeat(
-    auto-fit,
-    minmax(300px, 1fr)
-  ); /* Exact same sizing rule as Interests */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Exact same sizing rule as Interests */
   gap: 25px; /* Same gap as Interests */
   margin: 0 auto;
 }
@@ -993,7 +990,7 @@ body.dark-mode .tech-tag {
 }
 
 .contact-info h3 {
-  color: white;
+  color: white; 
   font-size: 1.8rem;
   margin-bottom: 15px;
 }
@@ -1071,8 +1068,7 @@ body.dark-mode .tech-tag {
 }
 
 /* Inputs styling remains the same */
-input,
-textarea {
+input, textarea {
   width: 100%;
   padding: 15px;
   border: 2px solid var(--border-color);
@@ -1082,7 +1078,7 @@ textarea {
   font-family: inherit;
   font-size: 1rem;
   transition: border-color 0.3s ease;
-  box-sizing: border-box;
+  box-sizing: border-box; 
 }
 
 textarea {
@@ -1090,28 +1086,27 @@ textarea {
   resize: vertical;
 }
 
-input:focus,
-textarea:focus {
+input:focus, textarea:focus {
   outline: none;
   border-color: var(--accent-primary);
   background-color: var(--card-bg);
   box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
 }
 
-/* Mobile Adjustments */
 @media (max-width: 768px) {
+  /* ... existing styles for nav, hero, etc ... */
+
   /* --- Contact Section Mobile Reset --- */
   .contact-container {
     grid-template-columns: 1fr; /* Force single column stack */
     gap: 25px;
   }
-
-  .contact-info,
-  .contact-form {
+  
+  .contact-info, .contact-form {
     /* RESET: Remove custom widths so they fill the grid like Interests */
-    width: auto;
-    max-width: none;
-    margin: 0;
+    width: auto; 
+    max-width: none; 
+    margin: 0; 
     padding: 30px; /* Keep standard padding */
     text-align: center; /* Keep text centered on mobile */
   }
@@ -1131,7 +1126,7 @@ textarea:focus {
     justify-content: center;
     font-size: 0.9rem;
   }
-
+  
   .contact-socials {
     justify-content: center;
   }
