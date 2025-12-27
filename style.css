@@ -969,72 +969,74 @@ body.dark-mode .tech-tag {
   border-color: rgba(255, 255, 255, 0.1);
 }
 
-/* --- UPDATED: Contact Section Layout (Compact Grid) --- */
+/* --- UPDATED: Contact Section Layout --- */
 .contact-container {
   display: grid; /* Switched to Grid */
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Matches Interests Grid */
-  gap: 25px; /* Matches Interests Gap */
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(300px, 1fr)
+  ); /* Exact same sizing rule as Interests */
+  gap: 25px; /* Same gap as Interests */
   margin: 0 auto;
 }
 
-/* Left Column: Contact Info - Compacted */
+/* Left Column: Contact Info */
 .contact-info {
   background: var(--gradient);
   color: white;
   padding: 30px; /* Reduced from 40px to match Interest items */
-  border-radius: 12px; /* Matches Interest radius */
+  border-radius: 12px; /* Match Interest radius */
   box-shadow: var(--shadow-lg);
+  /* Flex direction ensures content distributes evenly */
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Centers content vertically */
 }
 
 .contact-info h3 {
-  color: white; 
-  font-size: 1.6rem; /* Slightly smaller heading */
+  color: white;
+  font-size: 1.8rem;
   margin-bottom: 15px;
 }
 
 .contact-info p {
   opacity: 0.9;
-  margin-bottom: 20px; /* Reduced spacing */
-  line-height: 1.5;
-  font-size: 0.95rem;
+  margin-bottom: 30px;
+  line-height: 1.6;
 }
 
 .contact-item {
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 12px; /* Reduced from 20px for compact look */
-  font-size: 1rem;
+  gap: 15px;
+  margin-bottom: 20px;
+  font-size: 1.1rem;
 }
 
 .contact-item i {
-  font-size: 1rem;
+  font-size: 1.2rem;
   background: rgba(255, 255, 255, 0.2);
-  padding: 8px; /* Smaller circle padding */
+  padding: 10px;
   border-radius: 50%;
-  width: 36px; /* Reduced from 40px+ */
-  height: 36px;
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .contact-socials {
-  margin-top: 20px; /* Reduced from 30px */
+  margin-top: 30px;
   display: flex;
-  gap: 12px;
+  gap: 15px;
 }
 
 .contact-socials a {
   color: white;
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   transition: transform 0.3s ease;
   background: rgba(255, 255, 255, 0.1);
-  width: 40px; /* Compact social buttons */
-  height: 40px;
+  width: 45px;
+  height: 45px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1048,46 +1050,48 @@ body.dark-mode .tech-tag {
   transform: translateY(-3px);
 }
 
-/* Right Column: The Form - Compacted */
+/* Right Column: The Form */
 .contact-form {
   background-color: var(--card-bg);
-  padding: 30px; /* Matches Interest items */
-  border-radius: 12px;
+  padding: 30px; /* Reduced from 40px to match Interest items */
+  border-radius: 12px; /* Match Interest radius */
   box-shadow: var(--shadow-md);
   border: 1px solid var(--border-color);
+  /* Flex direction ensures consistent height */
   display: flex;
   flex-direction: column;
 }
 
 .contact-form h3 {
   margin-bottom: 20px;
-  font-size: 1.6rem;
 }
 
 .input-group {
-  margin-bottom: 15px; /* Tighter input spacing */
+  margin-bottom: 20px;
 }
 
-/* Inputs styling */
-input, textarea {
+/* Inputs styling remains the same */
+input,
+textarea {
   width: 100%;
-  padding: 12px 15px; /* Slightly more compact padding */
+  padding: 15px;
   border: 2px solid var(--border-color);
   border-radius: 8px;
   background-color: var(--bg-light);
   color: var(--text-dark);
   font-family: inherit;
-  font-size: 0.95rem;
+  font-size: 1rem;
   transition: border-color 0.3s ease;
-  box-sizing: border-box; 
+  box-sizing: border-box;
 }
 
 textarea {
-  height: 120px; /* Slightly shorter text area */
+  height: 150px;
   resize: vertical;
 }
 
-input:focus, textarea:focus {
+input:focus,
+textarea:focus {
   outline: none;
   border-color: var(--accent-primary);
   background-color: var(--card-bg);
@@ -1095,27 +1099,25 @@ input:focus, textarea:focus {
 }
 
 @media (max-width: 768px) {
-  /* --- Contact Section Mobile Reset --- */
-  .contact-container {
-    grid-template-columns: 1fr; /* Stack vertically */
-    gap: 25px;
-  }
-  
-  .contact-info, .contact-form {
-    /* RESET: Remove custom widths so they fill the grid like Interests */
-    width: auto; 
-    max-width: none; 
-    margin: 0; 
-    padding: 30px; /* Keep consistent padding */
-    text-align: center; /* Center text on mobile */
+  .contact-info,
+  .contact-form {
+    /* 1. REDUCE WIDTH */
+    width: 85%; /* Uses only 85% of the screen width */
+    max-width: 320px; /* Prevents it from getting wider than 320px */
+    margin: 0 auto; /* Centers the box horizontally */
+
+    /* 2. REDUCE HEIGHT */
+    padding: 20px; /* Reduces internal space (was 30px) */
   }
 
-  /* Center the content internally */
-  .contact-item {
-    justify-content: center;
+  /* Optional: Reduce internal spacing to shrink height further */
+  .contact-info h3,
+  .contact-form h3 {
+    margin-bottom: 10px; /* Less space under the title */
+    font-size: 1.4rem; /* Smaller title text */
   }
-  
-  .contact-socials {
-    justify-content: center;
+
+  .contact-info p {
+    margin-bottom: 15px; /* Less space under the paragraph */
   }
 }
