@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -11,22 +11,40 @@
     />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
-    <meta property="og:image" content="https://hssamuelportfolio.netlify.app/assets/mypassport.jpg" />
+    <meta
+      property="og:image"
+      content="https://hssamuelportfolio.netlify.app/assets/mypassport.jpg"
+    />
     <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
 
-    <meta property="og:title" content="Hunsa S. Samuel | Software Developer Portfolio" />
-    <meta property="og:description" content="Explore the portfolio of Hunsa S. Samuel - Administrator, Full-Stack Developer, and Graphic Designer." />
+    <meta
+      property="og:title"
+      content="Hunsa S. Samuel | Software Developer Portfolio"
+    />
+    <meta
+      property="og:description"
+      content="Explore the portfolio of Hunsa S. Samuel - Administrator, Full-Stack Developer, and Graphic Designer."
+    />
 
     <meta property="og:url" content="https://hssamuelportfolio.netlify.app" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="HSSamuel Portfolio" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Hunsa S. Samuel | Software Developer Portfolio" />
-    <meta name="twitter:description" content="Check out my latest web development projects and skills." />
-    <meta name="twitter:image" content="https://hssamuelportfolio.netlify.app/assets/mypassport.jpg" />
+    <meta
+      name="twitter:title"
+      content="Hunsa S. Samuel | Software Developer Portfolio"
+    />
+    <meta
+      name="twitter:description"
+      content="Check out my latest web development projects and skills."
+    />
+    <meta
+      name="twitter:image"
+      content="https://hssamuelportfolio.netlify.app/assets/mypassport.jpg"
+    />
   </head>
   <body>
     <header>
@@ -265,6 +283,39 @@
 
       <section id="projects">
         <h2>My Projects</h2>
+
+        <div class="project-card" data-aos="fade-up">
+          <div class="project-image-wrapper">
+            <img
+              src="assets/project7.png"
+              alt="Screenshot of ASCON Alumni"
+              loading="lazy"
+            />
+          </div>
+          <div class="project-text-content">
+            <h3>ASCON Alumni</h3>
+            <p>
+              ASCON Alumni is the official digital platform for the
+              Administrative Staff College of Nigeria (ASCON) Alumni. It bridges
+              the gap between the institution and its graduates, providing
+              Digital Identity, Networking, Smart Career Matching, Real-Time
+              Voice/Group Calling, and Verification services.
+            </p>
+
+            <div class="project-tech-stack">
+              <span class="tech-tag">Flutter (Dart)</span>
+              <span class="tech-tag">React.js</span>
+              <span class="tech-tag">Node.js & Express</span>
+            </div>
+
+            <a
+              href="https://asconmobile.netlify.app"
+              target="_blank"
+              class="project-link"
+              >View Project</a
+            >
+          </div>
+        </div>
 
         <div class="project-card" data-aos="fade-up">
           <div class="project-image-wrapper">
@@ -606,7 +657,7 @@
           const sectionTop = current.offsetTop - 100; // Offset for the sticky header
           const sectionId = current.getAttribute("id");
           const sectionLink = document.querySelector(
-            ".nav-links a[href*=" + sectionId + "]"
+            ".nav-links a[href*=" + sectionId + "]",
           );
 
           // If the section exists in the nav menu
@@ -705,7 +756,7 @@
                 showToast(
                   "Error",
                   data["errors"].map((error) => error["message"]).join(", "),
-                  "error"
+                  "error",
                 );
               } else {
                 showToast("Error", "Oops! There was a problem.", "error");
